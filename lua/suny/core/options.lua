@@ -1,7 +1,6 @@
 -- shift+5(%) 在当前目录建立一个文件
 -- :Explore 唤出目录
 
-
 -- vim打开目录时,有竖线显示
 vim.cmd("let g:netrw_liststyle = 3")
 
@@ -16,7 +15,12 @@ opt.shiftwidth = 2 -- 2 spaces for indent width
 opt.expandtab = true -- expand tab to spaces
 opt.autoindent = true -- copy indent from current line when starting new one
 
-opt.wrap = false
+-- 启用自动换行
+opt.wrap = true
+-- 使用linebreak选项来确保在单词边界处进行换行，而不是在字符中间换行
+opt.linebreak = true
+-- 显示换行符号
+opt.showbreak = "↪"
 
 -- search settings
 opt.ignorecase = true -- ignore case when searching
