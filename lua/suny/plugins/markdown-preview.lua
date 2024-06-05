@@ -14,6 +14,12 @@ return {
         vim.cmd("!cd " .. install_path .. " && npm install")
       end
       vim.g.mkdp_auto_close = 0
+
+      -- keybinding
+      local keymap = vim.keymap -- for conciseness
+
+      keymap.set("n", "<leader>mt", "<cmd>MarkdownPreviewToggle<CR>", { desc = "Markdown Start Preview" }) -- toggle file explorer
+      keymap.set("n", "<leader>mp", "<cmd>Pastify<CR>", { desc = "Markdown image paste" }) -- toggle file explorer on current file
     end,
   },
   -- 粘贴图像到markdown文档
