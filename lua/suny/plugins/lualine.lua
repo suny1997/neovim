@@ -103,6 +103,20 @@ return {
       end,
     }
 
+    -- Custom mode display function
+    local function custom_mode()
+      local alias = {
+        n = "n", -- normal
+        i = "i", -- insert
+        c = "c", -- command
+        v = "v", -- visual
+        V = "V", -- visual line
+        [""] = "B", -- visual block
+        R = "R", -- replace
+        t = "t", -- terminal
+      }
+      return alias[vim.fn.mode()] or vim.fn.mode()
+    end
     require("lualine").setup({
       options = {
         icons_enabled = true,
@@ -126,7 +140,7 @@ return {
         disabled_filetypes = { "dashboard", "NvimTree", "packer" },
       },
       sections = {
-        lualine_a = { "mode" },
+        lualine_a = { custom_mode },
         lualine_b = { "branch" },
         lualine_c = {
           { "filename", cond = conditions.buffer_not_empty, color = { fg = colors.magenta, gui = "bold" } },
