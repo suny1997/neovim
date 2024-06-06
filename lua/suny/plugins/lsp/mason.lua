@@ -40,6 +40,7 @@ return {
         "prismals",
         "pyright",
         "clangd",
+        "marksman",
       },
     })
 

@@ -138,6 +138,26 @@ return {
           },
         })
       end,
+      -- 新添加-markdown配置
+      -- 疑似未生效
+      ["marksman"] = function()
+        -- configure marksman server for Markdown
+        lspconfig["marksman"].setup({
+          capabilities = capabilities,
+          filetypes = { "markdown" },
+        })
+      end,
+    })
+
+    -- Markdown specific settings
+    vim.api.nvim_create_autocmd("FileType", {
+      pattern = "markdown", -- 设置 Markdown 文件类型的特定配置
+      callback = function()
+        -- Set wrap and spell options for markdown files
+        vim.opt_local.wrap = true -- 启用自动换行
+        vim.opt_local.spell = true -- 启用拼写检查
+        vim.opt_local.spelllang = { "en_us" } -- 设置拼写检查的语言为美式英语
+      end,
     })
   end,
 }

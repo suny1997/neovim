@@ -3,6 +3,16 @@ vim.cmd([[
 autocmd FileType * set formatoptions-=cro
 ]])
 
+-- 复制时高亮
+vim.api.nvim_create_augroup("YankHighlight", { clear = true })
+vim.api.nvim_create_autocmd("TextYankPost", {
+  group = "YankHighlight",
+  pattern = "*",
+  callback = function()
+    vim.highlight.on_yank({ higroup = "IncSearch", timeout = 200 })
+  end,
+})
+
 --自动命令,检测到vimLeave事件和FocusGained事件时执行切换输入法命令
 --只要退出编辑模式,就执行一次im-select 1033
 vim.api.nvim_create_autocmd({ "InsertLeave" }, {
