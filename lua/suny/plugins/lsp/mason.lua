@@ -56,6 +56,7 @@ return {
         "pylint",
         "eslint_d",
         "clang-format",
+        "markdownlint",
       },
     })
   end,
