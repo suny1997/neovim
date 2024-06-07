@@ -18,7 +18,7 @@ return {
       -- keybinding
       local keymap = vim.keymap -- for conciseness
 
-      keymap.set("n", "<leader>mt", "<cmd>MarkdownPreviewToggle<CR>", { desc = "Markdown Start Preview" }) -- toggle file explorer
+      keymap.set("n", "<leader>mt", "<cmd>MarkdownPreviewToggle<CR>", { desc = "Markdown Preview Toggle" }) -- toggle file explorer
       keymap.set("n", "<leader>mp", "<cmd>Pastify<CR>", { desc = "Markdown image paste" }) -- toggle file explorer on current file
     end,
   },
