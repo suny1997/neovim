@@ -73,7 +73,8 @@ return {
   --   })
   -- end,
   -- 上面是old
-  -- nvchad 配置
+
+  -- nvchad 风格配置
   config = function()
     local colors = {
       bg = "#1e222a",
@@ -103,20 +104,21 @@ return {
       end,
     }
 
+    -- 简化lualine的mode块,现在取消
     -- Custom mode display function
-    local function custom_mode()
-      local alias = {
-        n = "n", -- normal
-        i = "i", -- insert
-        c = "c", -- command
-        v = "v", -- visual
-        V = "V", -- visual line
-        [""] = "B", -- visual block
-        R = "R", -- replace
-        t = "t", -- terminal
-      }
-      return alias[vim.fn.mode()] or vim.fn.mode()
-    end
+    -- local function custom_mode()
+    --   local alias = {
+    --     n = "n", -- normal
+    --     i = "i", -- insert
+    --     c = "c", -- command
+    --     v = "v", -- visual
+    --     V = "V", -- visual line
+    --     [""] = "B", -- visual block
+    --     R = "R", -- replace
+    --     t = "t", -- terminal
+    --   }
+    --   return alias[vim.fn.mode()] or vim.fn.mode()
+    -- end
     require("lualine").setup({
       options = {
         icons_enabled = true,
@@ -140,7 +142,8 @@ return {
         disabled_filetypes = { "dashboard", "NvimTree", "packer" },
       },
       sections = {
-        lualine_a = { custom_mode },
+        -- lualine_a = { custom_mode },
+        lualine_a = { "mode" },
         lualine_b = { "branch" },
         lualine_c = {
           { "filename", cond = conditions.buffer_not_empty, color = { fg = colors.magenta, gui = "bold" } },
